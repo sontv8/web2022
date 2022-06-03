@@ -1,0 +1,28 @@
+.banner{
+    height: 200px;
+    background-color: yellow;
+}
+.col{
+    border: 1px solid red;
+    height: 100px;
+}
+@media (min-width:768px){
+    .banner{
+        height: 200px;
+        background-color: green;
+    }
+    .news{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 20px;
+        margin: 10px 0;
+    }
+}
+@media (min-width:1024px){
+    .news{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 20px;
+        margin: 10px 0;
+    }
+}
