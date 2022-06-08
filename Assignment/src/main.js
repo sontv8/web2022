@@ -166,14 +166,14 @@ detailProduct()
 function listCategory(){
     for(let item of ListCategory){
         document.querySelector("#cate-list").innerHTML += `
-            <li><a href="./products.html?cateId=${item.id}">${item.name}</a></li>
+            <li><a href="./products.html?cateId=${item.id}" onclick="reRender(${item.id});event.preventDefault()">${item.name}</a></li>
         `
     }
 }
 listCategory()
 
+const listProductDiv = document.querySelector('#list-product')
 function listProductPage(data){
-    const listProductDiv = document.querySelector('#list-product')
     if (listProductDiv) {
         listProductDiv.innerHTML = "";
         for (let item of data) {
@@ -194,12 +194,24 @@ function listProductPage(data){
 }
 listProductPage(ListProduct)
 
-function reRender(){
-    const cateId = new URLSearchParams(window.location.search).get('cateId')
+// function reRender(){
+//     const cateId = new URLSearchParams(window.location.search).get('cateId')
+//     const filterCategory = ListProduct.filter(function(item){
+//         return item.category == cateId
+//     })
+//     if(cateId){
+//         listProductPage(filterCategory)
+//     }else{
+//         listProductPage(ListProduct)
+//     }
+// }
+// reRender()
+
+
+function reRender(cateId){
+    // const cateId = new URLSearchParams(window.location.search).get('cateId')
     const filterCategory = ListProduct.filter(function(item){
         return item.category == cateId
     })
-    // console.log(filterCategory);
-    listProductPage(filterCategory)
+        listProductPage(filterCategory)
 }
-
